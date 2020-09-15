@@ -23,12 +23,15 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to comments_path, notice: "ブログを編集しました！"
+      redirect_to comments_path, notice: "コメントを編集しました！"
     else
       render :edit
     end
   end
   def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to comments_path, notice:"コメントを削除しました！"
   end
   def confirm
     @comment = Comment.new(comment_params)
