@@ -17,16 +17,10 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
   end
-
   def edit
   end
-
-  def show
-  end
-
   def update
   end
-
   def destroy
   end
   def confirm
