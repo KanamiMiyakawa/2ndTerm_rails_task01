@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :set_blog, only: [:edit,:update,:destroy]
   def index
     @comments = Comment.all
   end
@@ -18,10 +19,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
   def edit
-    @comment = Comment.find(params[:id])
   end
   def update
-    @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
       redirect_to comments_path, notice: "コメントを編集しました！"
     else
@@ -29,7 +28,6 @@ class CommentsController < ApplicationController
     end
   end
   def destroy
-    @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to comments_path, notice:"コメントを削除しました！"
   end
@@ -40,5 +38,8 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:content)
+  end
+  def set_blog
+    @comment = Comment.find(params[:id])
   end
 end
