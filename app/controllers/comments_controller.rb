@@ -3,9 +3,12 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
   def create
-    @comment = Comment.new(content: params[:comment][:content])
-    @comment.save
-    redirect_to comments_path, notice: "コメントを投稿しました！"
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to comments_path, notice: "コメントを投稿しました！"
+    else
+      render :new
+    end
   end
   def new
     @comment = Comment.new
@@ -21,5 +24,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+  end
+  private
+  def comment_params
+    params.require(:comment).permit(:content)
   end
 end
