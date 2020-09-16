@@ -25,7 +25,9 @@
         </div>
       <% end %>
       <div class="form_content">
-        <%= form.label :content, "投稿内容", class: "content_label" %>
+        <p>
+          <%= form.label :content, "投稿内容", class: "content_label" %>
+        </p>
         <%= form.text_area :content, class: "content_text_area", size: "40x4" %>
       </div>
       <%= form.submit "Create Comment!", class: "form_button" %>
