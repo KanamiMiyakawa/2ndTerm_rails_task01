@@ -1,7 +1,27 @@
-<h3>このコメントで、投稿する。</h3>
-<%= form_with(model: @comment, local: true) do |form| %>
-  <%= form.hidden_field :content %>
-  <p>コメント:<%= @comment.content %></p>
-  <%= form.submit  "投稿する" %>
-  <%= form.submit "戻る", name: 'back' %>
-<% end %>
+<header class="clearfix">
+  <ul class="clearfix">
+    <div class="header_left clearfix">
+      <li class="left"><a href=<%= comments_path %>>ShortBlog</a></li>
+      <li class="left"><a href="#">お問い合わせ</a></li>
+    </div>
+    <div class="header_right clearfix">
+      <li class="right"><a href=<%= comments_path %>>投稿一覧</a></li>
+      <li class="right"><a href=<%= new_comment_path %>>新規作成</a></li>
+      <li class="right"><a href="#">ログイン</a></li>
+    </div>
+  </ul>
+</header>
+<main>
+  <div class="confirm_box">
+    <h3>このコメントで、投稿する。</h3>
+    <%= form_with(model: @comment, local: true) do |form| %>
+      <%= form.hidden_field :content %>
+      <p class="confirm_content"><%= @comment.content %></p>
+      <%= form.submit  "投稿する", class: "form_button" %>
+      <%= form.submit "   戻る   ", name: 'back', class: "form_button"  %>
+    <% end %>
+  </div>
+</main>
+<footer>
+  <p>© 2015-2020 Copyright DIVE INTO CODE Corp.</p>
+</footer>
