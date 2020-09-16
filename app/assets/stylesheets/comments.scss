@@ -1,3 +1,94 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  background-image: image-url('background_image.jpg');
+  background-size: 100% auto;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+}
+p {
+  margin: 0;
+}
+//header
+header {
+  background-color: rgb(35,40,70);
+}
+.header_left{
+  float: left;
+}
+.header_right{
+  float: right;
+}
+header ul {
+  margin: 0;
+}
+header ul a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 10px 15px 10px 10px;
+  transition: .3s;
+}
+header ul a:hover{
+  opacity: 0.7;
+  background-color: #555555;
+}
+header li {
+  list-style: none;
+  float: left;
+}
+//main
+main {
+  margin: 0;
+  padding-bottom: 2rem;
+}
+#notice {
+  font-size: 1.5rem;
+  color : red;
+}
+#comment_wrapper {
+  text-align: center;
+}
+.comment_box {
+  background-color: white;
+  font-size: 2rem;
+  width: 650px;
+  margin: 0 auto;
+  border: solid 1px black;
+}
+.comment_date {
+  font-size: 1.5rem;
+  text-align: left;
+  padding: 10px 40px;
+}
+.comment_content {
+  text-align: left;
+  padding: 0 80px;
+}
+.comment_buttons {
+  font-size: 1.5rem;
+  text-align: right;
+  padding: 10px 40px;
+}
+//footer
+footer {
+  height: 2rem;
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+}
+footer p {
+  font-size: 1rem;
+  color: white;
+  line-height: 2rem;
+}
+//
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}

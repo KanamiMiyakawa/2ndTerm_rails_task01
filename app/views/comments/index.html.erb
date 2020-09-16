@@ -1,21 +1,31 @@
-<h1>コメント一覧</h1>
-<p><%= notice %></p>
-<table>
-  <tr>
-    <th>id</th>
-    <th>日付</th>
-    <th>コメント</th>
-  </tr>
-<% @comments.each do |comment| %>
-  <tr>
-    <td><%= comment.id %></td>
-    <td><%= comment.created_at %></td>
-    <td><%= comment.content %></td>
-    <td><%= link_to "編集", edit_comment_path(comment.id) %></td>
-    <td><%= link_to '削除', comment_path(comment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-  </tr>
-<% end %>
-</table>
-<p>
-  <%= link_to '新規作成', new_comment_path %>
-</p>
+<header class="clearfix">
+  <ul class="clearfix">
+    <div class="header_left clearfix">
+      <li class="left"><a href=<%= comments_path %>>ShortBlog</a></li>
+      <li class="left"><a href="#">お問い合わせ</a></li>
+    </div>
+    <div class="header_right clearfix">
+      <li class="right"><a href=<%= comments_path %>>投稿一覧</a></li>
+      <li class="right"><a href=<%= new_comment_path %>>新規作成</a></li>
+      <li class="right"><a href="#">ログイン</a></li>
+    </div>
+  </ul>
+</header>
+<main>
+  <div id="comment_wrapper">
+    <p id="notice"><%= notice %></p>
+    <% @comments.each do |comment| %>
+    <div class="comment_box">
+      <p class="comment_date"><%= l comment.created_at %></p>
+      <p class="comment_content"><%= comment.content %></p>
+      <p class="comment_buttons">
+        <%= link_to "編集", edit_comment_path(comment.id) %>
+        <%= link_to '削除', comment_path(comment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+      </p>
+    </div>
+    <% end %>
+  </div>
+</main>
+<footer>
+  <p>© 2015-2018 Copyright DIVE INTO CODE Corp.</p>
+</footer>
