@@ -13,7 +13,9 @@
 </header>
 <main>
   <div id="comment_wrapper">
-    <p id="notice"><%= notice %></p>
+    <% if notice %>
+      <p id="notice"><%= notice %></p>
+    <% end %>
     <% @comments.each do |comment| %>
     <div class="comment_box">
       <p class="comment_date"><%= l comment.created_at %></p>
