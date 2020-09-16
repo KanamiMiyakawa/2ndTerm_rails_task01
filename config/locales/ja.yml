@@ -2,3 +2,7 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+  errors:
+    messages:
+      too_short: は1文字以上で入力してください
+      too_long: は140文字以内で入力してください

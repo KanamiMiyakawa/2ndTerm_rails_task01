@@ -93,6 +93,7 @@ main {
   padding:50px 0 15px 0;
 }
 .content_label {
+  color: rgb(55,80,180);
 }
 .content_text_area {
   font-size: 1.5rem;
@@ -108,6 +109,14 @@ main {
 }
 .form_button:hover{
   opacity: 0.7;
+}
+//error_msg
+#error_explanation {
+  color: rgb(55,80,180);
+  padding: 20px 0 0 0;
+}
+#error_explanation li {
+  list-style: none;
 }
 //confirm.html
 .confirm_box {
