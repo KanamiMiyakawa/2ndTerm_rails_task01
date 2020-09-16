@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit,:update,:destroy]
   def index
-    @comments = Comment.all
+    @comments = Comment.all.order("id DESC")
   end
   def create
     @comment = Comment.new(comment_params)
