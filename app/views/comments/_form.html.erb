@@ -1,19 +1,37 @@
-<%= form_with(model: @comment, local: true, url: choose_new_or_edit ) do |form| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @comment.errors.count %>件のエラーがあります。</h2>
-      <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<header class="clearfix">
+  <ul class="clearfix">
+    <div class="header_left clearfix">
+      <li class="left"><a href=<%= comments_path %>>ShortBlog</a></li>
+      <li class="left"><a href="#">お問い合わせ</a></li>
     </div>
-  <% end %>
-  <div class="comment_content">
-    <%= form.label :content, "投稿内容" %>
-    <%= form.text_area :content %>
+    <div class="header_right clearfix">
+      <li class="right"><a href=<%= comments_path %>>投稿一覧</a></li>
+      <li class="right"><a href=<%= new_comment_path %>>新規作成</a></li>
+      <li class="right"><a href="#">ログイン</a></li>
+    </div>
+  </ul>
+</header>
+<main>
+  <div class="form_box">
+    <%= form_with(model: @comment, local: true, url: choose_new_or_edit ) do |form| %>
+      <% if @comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @comment.errors.count %>件のエラーがあります。</h2>
+          <ul>
+          <% @comment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form_content">
+        <%= form.label :content, "投稿内容", class: "content_label" %>
+        <%= form.text_area :content, class: "content_text_area", size: "40x4" %>
+      </div>
+      <%= form.submit "Create Comment!", class: "form_button" %>
+    <% end %>
   </div>
-  <%= form.submit %>
-<% end %>
-<br>
-<%= link_to "コメント一覧にもどる", comments_path %>
+</main>
+<footer>
+  <p>© 2015-2020 Copyright DIVE INTO CODE Corp.</p>
+</footer>
